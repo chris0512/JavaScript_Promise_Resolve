@@ -1,11 +1,12 @@
 let sentToAirport = true;
 let p = new Promise(function(resolve, reject){
     if(sentToAirport){
-        console.log("sent to airport");
-        resolve();
+        resolve("from resolve(): send to airport");
     }else{
+        console.log("can't sent to airport'");
         reject();
     }
 });
 
-p.then(function(){console.log("Promise resolve")});
+p.then(function(message){console.log(`${message} - promise resolved`)})
+    .catch(function(){console.log("Promise reject")});
